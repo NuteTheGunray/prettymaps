@@ -258,33 +258,33 @@ def plot(
             # Draw shape normally
             plot_shapes(shapes, ax, vsketch=vsketch, **kwargs)
 
-    if ((isinstance(osm_credit, dict)) or (osm_credit is True)) and (vsketch is None):
-        x, y = figsize
-        d = 0.8 * (x ** 2 + y ** 2) ** 0.5
-        draw_text(
-            ax,
-            (
-                osm_credit["text"]
-                if "text" in osm_credit
-                else "data © OpenStreetMap contributors\ngithub.com/marceloprates/prettymaps"
-            ),
-            x=xmin + (osm_credit["x"] * dx if "x" in osm_credit else 0),
-            y=ymax - 4 * d - (osm_credit["y"] * dy if "y" in osm_credit else 0),
-            fontfamily=(
-                osm_credit["fontfamily"]
-                if "fontfamily" in osm_credit
-                else "Ubuntu Mono"
-            ),
-            fontsize=(osm_credit["fontsize"] * d if "fontsize" in osm_credit else d),
-            zorder=(
-                osm_credit["zorder"] if "zorder" in osm_credit else len(layers) + 1
-            ),
-            **{
-                k: v
-                for k, v in osm_credit.items()
-                if k not in ["text", "x", "y", "fontfamily", "fontsize", "zorder"]
-            },
-        )
+#     if ((isinstance(osm_credit, dict)) or (osm_credit is True)) and (vsketch is None):
+#         x, y = figsize
+#         d = 0.8 * (x ** 2 + y ** 2) ** 0.5
+#         draw_text(
+#             ax,
+#             (
+#                 osm_credit["text"]
+#                 if "text" in osm_credit
+#                 else "data © OpenStreetMap contributors\ngithub.com/marceloprates/prettymaps"
+#             ),
+#             x=xmin + (osm_credit["x"] * dx if "x" in osm_credit else 0),
+#             y=ymax - 4 * d - (osm_credit["y"] * dy if "y" in osm_credit else 0),
+#             fontfamily=(
+#                 osm_credit["fontfamily"]
+#                 if "fontfamily" in osm_credit
+#                 else "Ubuntu Mono"
+#             ),
+#             fontsize=(osm_credit["fontsize"] * d if "fontsize" in osm_credit else d),
+#             zorder=(
+#                 osm_credit["zorder"] if "zorder" in osm_credit else len(layers) + 1
+#             ),
+#             **{
+#                 k: v
+#                 for k, v in osm_credit.items()
+#                 if k not in ["text", "x", "y", "fontfamily", "fontsize", "zorder"]
+#             },
+#         )
 
     # Return perimeter
     return layers
